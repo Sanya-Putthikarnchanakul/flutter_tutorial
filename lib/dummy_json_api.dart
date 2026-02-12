@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
-// import 'package:flutter/services.dart';
 import 'package:flutter_tutorial/app_config.dart';
 
 class DummyJsonApi {
@@ -23,15 +22,6 @@ class DummyJsonApi {
     if (AppConfig.useMitmProxy) {
       _dio?.httpClientAdapter = IOHttpClientAdapter(
         createHttpClient: () {
-          // HttpClient client;
-          // _setupContext().then((context) {
-          //   client = HttpClient(context: context);
-          //   client.findProxy = (uri) => 'PROXY ${AppConfig.proxyUrl}:${AppConfig.proxyPort}';
-          //   return client;
-          // });
-
-          //return client;
-
           HttpClient client = HttpClient();
           client.badCertificateCallback = (cert, host, port) => true;
           client.findProxy = (uri) => 'PROXY ${AppConfig.proxyUrl}:${AppConfig.proxyPort}';
@@ -42,19 +32,6 @@ class DummyJsonApi {
 
     _dio?.interceptors.add(LogInterceptor());
   }
-
-  // Future<SecurityContext> _setupContext() {
-  //   final completer = Completer<SecurityContext>();
-
-  //   final context = SecurityContext.defaultContext;
-
-  //   rootBundle.load('assets/mitmproxy-ca.pem').then((certBytes) {
-  //     context.setTrustedCertificatesBytes(certBytes.buffer.asUint8List());
-  //     completer.complete(context);
-  //   });
-
-  //   return completer.future;
-  // }
 
   Future<void> login() async {
     try {
