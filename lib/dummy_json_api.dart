@@ -24,6 +24,8 @@ class DummyJsonApi {
         createHttpClient: () {
           HttpClient client = HttpClient();
           client.badCertificateCallback = (cert, host, port) => true;
+          // AppConfig.proxyUrl = 10.0.2.2 on android and 127.0.0.1 on ios
+          // AppConfig.proxyPort = 8080 (default mitm port)
           client.findProxy = (uri) => 'PROXY ${AppConfig.proxyUrl}:${AppConfig.proxyPort}';
           return client;
         },
