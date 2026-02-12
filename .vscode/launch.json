@@ -22,6 +22,17 @@
       ]
     },
     {
+      "name": "proxy android (real)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "args": [
+        "--dart-define=useMitmProxy=true",
+        "--dart-define=proxyUrl=192.168.1.135",
+        "--dart-define=proxyPort=8080"
+      ]
+    },
+    {
       "name": "proxy ios",
       "request": "launch",
       "type": "dart",
