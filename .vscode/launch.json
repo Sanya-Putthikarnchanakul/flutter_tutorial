@@ -11,13 +11,24 @@
       "flutterMode": "debug"
     },
     {
-      "name": "proxy",
+      "name": "proxy android",
       "request": "launch",
       "type": "dart",
       "flutterMode": "debug",
       "args": [
         "--dart-define=useMitmProxy=true",
         "--dart-define=proxyUrl=10.0.2.2",
+        "--dart-define=proxyPort=8080"
+      ]
+    },
+    {
+      "name": "proxy ios",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "args": [
+        "--dart-define=useMitmProxy=true",
+        "--dart-define=proxyUrl=127.0.0.1",
         "--dart-define=proxyPort=8080"
       ]
     },
